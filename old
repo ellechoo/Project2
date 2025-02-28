@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elle's Character Alphabet</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput {
+
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+
+        }
+
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none; /* This line is mandatory */
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="pageTitle">Elle's Character Alphabet</h1>
+    <h1 id="pageSubtitle">Enter a letter from A-Z to display a very random (not biased) fictional character.</h1>
+
+   <div class = "container">
+        <div class = "input-container">
+            <!-- INPUT AND BUTTON -->
+            <input type="text" id="charInput" maxlength="1">
+            <button onclick="displayImage()" id="submitButton">Show Image</button>
+        </div>
+
+        <div class = "image-container">
+            <!-- IMAGE TO DISPLAY -->
+            <p id="imageLabel" style="display:none;"></p>
+            <img id="displayedImage" src="" alt="Displayed Image">
+            <p id="imageDescription" style="display:none;"></p>
+        </div>
+    </div> 
+
+
+    <!-- Image Display Script Below -->
+    <script>
+        // Array of images
+        // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
+        const images = [
+            "https://i1.sndcdn.com/artworks-wZVYDFOhRICW4S3V-UzyVsQ-t1080x1080.jpg", //A - Acheron
+            "https://i.pinimg.com/736x/46/ae/b6/46aeb6d6e046c3941c5dfc7f5b1f2cd6.jpg", //B - Bruno Bucciarati
+            "https://i.pinimg.com/736x/f8/51/39/f85139166516cb135df50cc5cd76fa1b.jpg", //C - Cinnamoroll
+            "https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQcnixuKzN3mzj7pl3wvKgYS8ybeQ1hLQmKT6yhAc8b4c6moQdUW7lCoxRTH1rtXThp2ov462Uv5jIQ9t9QXAyslYBa3gpESqLOX9i_vOsOMBQrUcGdMGgYs0wnqmvDXqWuSFruUzVQ8w_TISvvRIdVKo9m8.jpg?r=aaf", //D - Dong-eun (Moon) The Glory
+            "https://i.pinimg.com/736x/10/63/6f/10636f509f436d1c4f1ffce4e40a1a3e.jpg", //E - Entrapta
+            "https://pbs.twimg.com/media/F-D-7p2WMAAe3Q9.jpg:large", //F - Furina
+            "https://ca-times.brightspotcdn.com/dims4/default/8e8801e/2147483647/strip/true/crop/2640x1760+959+0/resize/2400x1600!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fcb%2Fb0%2F7007d68042bcb773e30a57cf7350%2Fet-spiderman-across-the-spiderverse-2023-004.JPG", //G - Gwen Stacy (Earth-65)
+            "https://y.yarn.co/34994063-d317-49e4-bafd-36e816fd161e_screenshot.jpg", //H - Haku
+            "https://oyster.ignimgs.com/mediawiki/apis.ign.com/avatar-the-last-airbender/a/ad/Iroh_img.jpg", //I - Iroh 
+            "https://www.hollywoodreporter.com/wp-content/uploads/2022/12/Print-Issue-36-C-Chaotic-Fashions-H-2022.jpg", //J - Jobu Tupaki
+            "https://shinyareviews.wordpress.com/wp-content/uploads/2019/10/kurapika_0.jpg", //K - Kurapika
+            "https://cdn1.elecspo.com/uploads/13/2019/01/2018121111285200-0E7DF678130F4F0FA2C88AE72B47AFDF-1.jpg", //L - Lucina
+            "https://hips.hearstapps.com/hmg-prod/images/shogun-104-04689r-6615652942b3c.jpg", //M - Mariko (Shogun)
+            "https://m.media-amazon.com/images/I/714by8UJfRL.jpg", //N - Neuvilette 
+            "https://64.media.tumblr.com/a23eefd6260d06c86955595fde1828d1/9398ce7caeb568d5-10/s1280x1920/3e1eadde240e41cd4b24d4a5cdb8b6509e1b6bd3.pnj", //O - Oogway 
+            "https://i.quotev.com/lmzejhowaaaa.jpg", //P - Peridot
+            "https://i.ytimg.com/vi/rxCcZClafeQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCOa_3dY65siG_v5p4o0ghhGUM04Q", //Q - Queen (Deltarune)
+            "https://i.pinimg.com/736x/5f/72/47/5f7247cdee8aa4dfd9903c7208b6d752.jpg", //R - Raven
+            "https://i1.sndcdn.com/artworks-KiM52H9HQtsq6uyv-X51fUw-t500x500.jpg", //S - Shadow milk cookie
+            "https://miyabioriental.com/cdn/shop/products/s-l500_33_817ccdac-b005-41ce-8231-666777f916e6.jpg?v=1631887037", //T - Toge Inumaki
+            "https://i.pinimg.com/736x/83/74/cb/8374cb9166824ce67cf2a026aeadb8dd.jpg", //U - Ultra Man (Ken Sato)
+            "https://i.imgflip.com/2erjsa.jpg?a483360", //V - Violet Parr (The Incredibles)
+            "https://static.wikitide.net/autisticcharacterswiki/thumb/1/1e/Extraordinary_Attorney_Woo_-_Woo_Young-woo.jpg/800px-Extraordinary_Attorney_Woo_-_Woo_Young-woo.jpg", //W - Woo Young-woo
+            "https://media.tenor.com/KN3oQMe5GVcAAAAe/something-omori-something.png", //X - Something
+            "https://m.media-amazon.com/images/I/81v9J2r71oL._AC_UF1000,1000_QL80_.jpg", //Y - Yuta Okkotsu
+            "https://pbs.twimg.com/media/GPXeVLka4AEmgmM.jpg"  //Z - Zuko
+        ];
+
+        const labels = [
+        "Acheron", "Bruno Bucciarati", "Cinnamoroll", "(Moon) Dong-eun",
+        "Entrapta", "Furina", "Gwen Stacy (Earth-65)", "Haku", "Iroh", "Jobu Tupaki",
+        "Kurapika", "Lucina", "Mariko", "Neuvillette", "Oogway", "Peridot",
+        "Queen", "Raven", "Shadow Milk Cookie", "Toge Inumaki",
+        "Ultraman (Ken Sato)", "Violet Parr", "Woo Young-woo", "?",
+        "Yuta Okkotsu", "Zuko"
+        ];
+
+        const footers = [
+        "Honkai: Star Rail", "JoJo’s Bizarre Adventure",
+        "Sanrio character", "The Glory", 
+        "She-Ra and the Princesses of Power", "Genshin Impact",
+        "Spider-Man: Across the Spider-Verse", "Spirited Away",
+        "Avatar: The Last Airbender", "Everything Everywhere All at Once",
+        "Hunter X Hunter", "Fire Emblem / Smash Bros", "Shōgun", "Genshin Impact",
+        "Kung Fu Panda", "Steven Universe", "Deltarune",
+        "Teen Titans", "Cookie Run: Kingdom", "Jujutsu Kaisen",
+        "Ultraman: Rising", "The Incredibles", "Extraordinary Attorney Woo",
+        "⧫︎♒︎♏︎❒︎♏︎♋︎❒︎♏︎■︎□︎⧫︎❍︎♋︎■︎⍓︎♍︎♒︎♋︎❒︎♋︎♍︎⧫︎♏︎❒︎⬧︎⬥︎♒︎□︎⬧︎■︎♋︎❍︎♏︎⬧︎⧫︎♋︎❒︎⧫︎⬧︎⬥︎♓︎⧫︎♒︎⌧︎", "Jujutsu Kaisen", "Avatar: The Last Airbender"
+        ];
+
+
+        function displayImage() {
+            const input = document.getElementById("charInput").value.toUpperCase();
+            const imgElement = document.getElementById("displayedImage");
+            const labelElement = document.getElementById("imageLabel"); // Select label element
+            const footerElement = document.getElementById("imageDescription");
+
+            
+            // Assign an image based on character (A-Z)
+            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
+            if (index >= 0 && index < images.length) {
+                imgElement.src = images[index];
+                imgElement.style.display = "block";
+
+                labelElement.innerText = labels[index];
+                footerElement.innerText = footers[index];
+
+                labelElement.style.display = "block";
+                footerElement.style.display = "block";
+
+            } else {
+                /* 
+                alert("Please enter a letter between A and Z.");
+                imgElement.style.display = "none";
+                */
+
+                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
+                imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtkdnJhMXY4Njd1cXR3MTM3MW1nMzZ1NXNhNHlhOHA0MWF2dDUzdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13dRJkj5wgKq9q/giphy.gif"
+                imgElement.style.display = "block";
+
+                labelElement.innerText = "Invalid Input!";
+                footerElement.innerText = "Try entering a letter from A-Z.";
+
+                labelElement.style.display = "block";
+                footerElement.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
