@@ -3,96 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letter Picker</title>
+    <title>2 INPUT 1 OUTPUT TEMPLATE</title>
     <style>
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            max-width: 200px;
+
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput1 {
+
         }
+
+        #charInput2 {
+
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
         #submitButton {
-            padding: 5px 10px;
-            font-size: 16px;
-            cursor: pointer;
+
         }
-        input {
-            width: 50px;
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+
+        /* STYLE FOR THE IMAGE */
         #displayedImage {
-            display: none;
+            display: none; /* This line is mandatory */
         }
     </style>
 </head>
 <body>
 
-    <h3>Pick Two Letters</h3>
     
-    <input type="text" id="input1" readonly>
-    <input type="text" id="input2" readonly>
-    <br><br>
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput1" maxlength="1">
+    <input type="text" id="charInput2" maxlength="1">
 
-    <div class="button-container" id="letter-buttons">
-        <!-- Letter buttons will be generated here -->
-    </div>
-
-
-    <br>
+    <!-- BUTTON TO DISPLAY IMAGE -->
     <button onclick="displayImage()" id="submitButton">Show Image</button>
-    <button onclick="resetInputs()">Reset</button>  <!-- Reset button added -->
 
     <!-- IMAGE TO DISPLAY -->
     <img id="displayedImage" src="" alt="Displayed Image">
 
+
+    <!-- Image Display Script Below -->
     <script>
-        const buttonContainer = document.getElementById("letter-buttons");
-        const input1 = document.getElementById("input1");
-        const input2 = document.getElementById("input2");
-
-        // Generate letter buttons
-        for (let i = 65; i <= 90; i++) {
-            const letter = String.fromCharCode(i);
-            const btn = document.createElement("button");
-            btn.textContent = letter;
-            btn.onclick = () => selectLetter(letter);
-            buttonContainer.appendChild(btn);
-        }
-
-        function selectLetter(letter) {
-            if (!input1.value) {
-                input1.value = letter;
-            } else if (!input2.value) {
-                input2.value = letter;
-            } else {
-                input2.value = letter; // Replace second input if both are filled
-            }
-        }
-
-        function resetInputs() {
-            input1.value = "";
-            input2.value = "";
-            
-            const imgElement = document.getElementById("displayedImage");
-            imgElement.style.display = "none";
-            imgElement.src = "";
-        }
 
         function displayImage() {
             const imgElement = document.getElementById("displayedImage");
-            imgElement.style.display = "none";
-            imgElement.src = "";
 
             //Letter
-            const input1_letter = document.getElementById("input1").value.toUpperCase();
-            const input2_letter = document.getElementById("input2").value.toUpperCase();
-
-            if (!input1_letter || !input2_letter) {
-            alert("Please select two letters first.");
-            return;
-            }
+            const input1_letter = document.getElementById("charInput1").value.toUpperCase();
+            const input2_letter = document.getElementById("charInput2").value.toUpperCase();
             
             //Number
             const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
@@ -125,10 +81,7 @@
             }
 
             //Remember to use if else statements to capture error conditions
-            else {
-                imgElement.style.display = "none"; // Hide the image if no match
-                alert("No image found for the selected letters.");
-            }
+
         }
     </script>
 
