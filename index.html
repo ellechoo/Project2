@@ -47,12 +47,13 @@
     <!-- IMAGE TO DISPLAY -->
     <img id="displayedImage" src="" alt="Displayed Image">
 
+    
     <script>
         const buttonContainer = document.getElementById("letter-buttons");
         const input1 = document.getElementById("input1");
         const input2 = document.getElementById("input2");
-
-        // Generate letter buttons
+    
+        // Generate letter buttons for input 1 (A-Z)
         for (let i = 65; i <= 90; i++) {
             const letter = String.fromCharCode(i);
             const btn = document.createElement("button");
@@ -60,7 +61,7 @@
             btn.onclick = () => selectLetter(letter);
             buttonContainer.appendChild(btn);
         }
-
+    
         function selectLetter(letter) {
             if (!input1.value) {
                 input1.value = letter;
@@ -70,67 +71,236 @@
                 input2.value = letter; // Replace second input if both are filled
             }
         }
-
+    
         function resetInputs() {
             input1.value = "";
             input2.value = "";
-            
+    
             const imgElement = document.getElementById("displayedImage");
             imgElement.style.display = "none";
             imgElement.src = "";
         }
-
+    
         function displayImage() {
             const imgElement = document.getElementById("displayedImage");
             imgElement.style.display = "none";
             imgElement.src = "";
-
-            //Letter
-            const input1_letter = document.getElementById("input1").value.toUpperCase();
-            const input2_letter = document.getElementById("input2").value.toUpperCase();
-
-            if (!input1_letter || !input2_letter) {
-            alert("Please select two letters first.");
-            return;
+    
+            // Letter inputs
+            const input1_letter = input1.value.toUpperCase();
+            const input2_value = input2.value.toUpperCase();
+    
+            if (!input1_letter || !input2_value) {
+                alert("Please select both letters first.");
+                return;
             }
-            
-            //Number
-            const input1_number = input1_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
-            const input2_number = input2_letter.charCodeAt(0); //Converts the letter to a number (https://www.ascii-code.com); For instance, 'A' is 65 in ASCII
+    
+            // GIF Map for Characters (A-Z)
+            const characterGifMap = {
+                "A": [
+                    "https://example.com/characterA_beg.gif", // Beginning GIF
+                    "https://example.com/characterA_mid.gif", // Middle GIF
+                    "https://example.com/characterA_end.gif"  // End GIF
+                ],
 
-            //HINTS
-            //HINT 1: You can compare strings with comparison operators and boolean operators
-            //COMPARISON & LOGICAL OPERATORS: https://www.w3schools.com/js/js_comparisons.asp
-            if(input1_letter === "A" && input2_letter !== "B") { //If input1_letter equals A AND input2_letter does not equal B, then show this image
-                imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWx2NnlvN3RocHVya2d3cXB5b2V0bXRqNXhyMGZkZG4wd3Zpdm13NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o75ajIFH0QnQC3nCeD/giphy.gif"
-                imgElement.style.display = "block";
+                "B": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "C": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "D": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "E": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "F": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "G": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "H": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "I": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "J": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "K": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "L": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "M": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "N": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "O": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "P": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "Q": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "R": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "S": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "T": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "U": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "V": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "W": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "X": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "Y": [
+                    "https://example.com/characterB_beg.gif",
+                    "https://example.com/characterB_mid.gif",
+                    "https://example.com/characterB_end.gif"
+                ],
+
+                "Z": [
+                    "https://example.com/characterZ_beg.gif",
+                    "https://example.com/characterZ_mid.gif",
+                    "https://example.com/characterZ_end.gif"
+                ]
+            };
+    
+            // Map second input to categories (1-8 = beginning, 9-18 = middle, 19-26 = end)
+            const categoryIndexMap = {
+                "beginning": [1, 2, 3, 4, 5, 6, 7, 8],
+                "middle": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                "end": [19, 20, 21, 22, 23, 24, 25, 26]
+            };
+    
+            // Convert the second input value (1-26) into a category
+            const input2_num = input2_value.charCodeAt(0) - 65 + 1; // Converts letter to 1-26 range
+            let category;
+    
+            if (input2_num >= 1 && input2_num <= 8) {
+                category = "beginning";
+            } else if (input2_num >= 9 && input2_num <= 18) {
+                category = "middle";
+            } else if (input2_num >= 19 && input2_num <= 26) {
+                category = "end";
             }
-
-
-            //HINT 2: Assign an image based numerical values
-            if(input1_number == 67 && input2_number == 68) { //If input1_number is 67 (C) AND input2_number is 68 (D), then show this image
-                imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWx2NnlvN3RocHVya2d3cXB5b2V0bXRqNXhyMGZkZG4wd3Zpdm13NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o75ajIFH0QnQC3nCeD/giphy.gif"
-                imgElement.style.display = "block";
-            } 
-
-
-            //HINT 3: You can perform simple math operations on the variables
-            //Arithmetic: https://www.w3schools.com/js/js_arithmetic.asp
-            let mymathresult = input1_number - input2_number;
-            console.log(mymathresult); //Console is a way to show a value in the console inspector
-
-            if(mymathresult < 1) { //If mymathresult is less than 1, then show this image
-                imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWx2NnlvN3RocHVya2d3cXB5b2V0bXRqNXhyMGZkZG4wd3Zpdm13NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o75ajIFH0QnQC3nCeD/giphy.gif"
-                imgElement.style.display = "block";
+    
+            // Get the character GIFs from the map (first input decides the character)
+            const selectedCharacterGifs = characterGifMap[input1_letter];
+    
+            if (!selectedCharacterGifs) {
+                alert("Invalid character selection.");
+                return;
             }
-
-            //Remember to use if else statements to capture error conditions
-            else {
-                imgElement.style.display = "none"; // Hide the image if no match
-                alert("No image found for the selected letters.");
+    
+            // Based on the category, select the appropriate GIF (1-8 = beginning, 9-18 = middle, 19-26 = end)
+            let selectedGif;
+            if (category === "beginning") {
+                selectedGif = selectedCharacterGifs[0]; // Beginning GIF
+            } else if (category === "middle") {
+                selectedGif = selectedCharacterGifs[1]; // Middle GIF
+            } else if (category === "end") {
+                selectedGif = selectedCharacterGifs[2]; // End GIF
+            }
+    
+            // Display the selected GIF
+            if (selectedGif) {
+                imgElement.src = selectedGif;
+                imgElement.style.display = "block";
+            } else {
+                imgElement.style.display = "none"; // Hide if no valid GIF
             }
         }
-    </script>
+    </script>    
+    
 
 </body>
 </html>
