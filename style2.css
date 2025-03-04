@@ -91,22 +91,31 @@ html, body {
 
 .action-buttons {
     display: flex;
+    flex-direction: column; /* Stack buttons vertically */
     gap: 10px; /* Add space between the buttons */
-    justify-content: flex-start; /* Align buttons to the left */
-    padding: 10px;
 }
 
 #submitButton, #resetButton {
-    padding: 10px 20px; /* Rectangular padding */
+    width: 100px; /* Set a fixed width for both buttons */
+    height: 140px; /* Match the height of the input boxes (280px / 2) */
     font-size: 16px; /* Smaller font size */
     cursor: pointer;
     background-color: #007bff; /* Blue background */
     color: white; /* White text */
     border: none; /* Remove default border */
     border-radius: 5px; /* Slightly rounded corners */
-    margin: 5px; /* Add some spacing */
-    height: auto; /* Allow height to adjust based on content */
-    min-width: 100px; /* Ensure a minimum width */
+    margin: 0; /* Remove margin */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+}
+
+#submitButton {
+    height: 140px; /* Match the height of the input boxes */
+}
+
+#resetButton {
+    height: 140px; /* Match the height of the input boxes */
 }
 
 #submitButton:hover, #resetButton:hover {
@@ -118,6 +127,12 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: left;
+}
+
+.input-and-buttons-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Add space between input boxes and buttons */
 }
 
 .input-container {

@@ -18,14 +18,16 @@
                 <!-- Alphabet buttons will be generated here -->
             </div>
     
-            <div class="action-buttons"> <!-- New container for submit/reset buttons -->
-                <button onclick="displayImage()" id="submitButton">Show Image</button>
-                <button onclick="resetInputs()" id="resetButton">Reset</button> 
-            </div>
-    
-            <div class="input-container">
-                <input type="text" id="input1" readonly>
-                <input type="text" id="input2" readonly>
+            <!-- New structure for input boxes and buttons -->
+            <div class="input-and-buttons-container">
+                <div class="input-container">
+                    <input type="text" id="input1" readonly>
+                    <input type="text" id="input2" readonly>
+                </div>
+                <div class="action-buttons">
+                    <button onclick="resetInputs()" id="resetButton">Reset</button>
+                    <button onclick="displayImage()" id="submitButton">Show Image</button>
+                </div>
             </div>
         </div>
     
