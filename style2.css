@@ -1,0 +1,63 @@
+.button-container {
+    display: grid;  /* Using grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));  /* Creates columns that automatically adjust based on available space */
+    gap: 10px;  /* Space between buttons */
+    max-width: 100%;  /* Allows buttons to take up full available width */
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+#letter-buttons button {
+    font-size: 40px;  /* Larger font size for the buttons */
+    padding: 20px;  /* Padding inside the button */
+    cursor: pointer;
+    height: 60px;  /* Set button height */
+    width: 80px;
+    text-align: center;
+    margin: 5px;
+}
+
+.form-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.input-container {
+    margin-bottom: 5px;
+}
+
+#submitButton, #resetButton {
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input {
+    width: 280px;
+    text-align: center;
+    margin-bottom: 10px;
+    height: 280px;  /* Optionally set a height to make them bigger */
+    font-size: 200px;  /* Increase the font size of the text in the input */
+    text-align: center;  /* Keeps the text centered */
+}
+
+#displayedImage {
+    display: none;
+    position: absolute; /* Positioning it absolutely so we can control its position on the page */
+    right: 10px; /* This moves the GIF to the right side of the page */
+    top: 50%; /* Centers it vertically, but you can adjust as needed */
+    transform: translateY(-50%); /* Adjusts the vertical positioning to center it exactly */
+    max-width: 80%; /* Ensures the GIF doesn't take up the entire screen width */
+}
+
+@media screen and (max-width: 768px) {
+    #displayedImage {
+        right: 10px; /* Keeps the GIF on the right for mobile */
+        top: auto; /* Removes the top positioning for mobile */
+        bottom: 10px; /* Positions the GIF towards the bottom on mobile */
+        transform: none; /* Removes the centering transform */
+        max-width: 100%; /* Ensures the GIF stays responsive on smaller screens */
+    }
+}
