@@ -8,6 +8,13 @@ html, body {
     height: 100%;
 }
 
+h1 {
+    font-size: 35px;
+    font-weight: bold;
+    color: #000000;
+    margin-left: 25px;
+}
+
 .content-container {
     display: flex;
     justify-content: space-between;
@@ -22,9 +29,10 @@ html, body {
 .left-container {
     flex: 2; /* Takes up 2/3 of the space */
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    gap: 20px; /* Adds spacing between elements */
-    padding: 10px; /* Optional: Add padding if needed */
+    gap: 10px; /* Reduce the gap between elements */
+    padding: 20px; /* Optional: Adjust padding if needed */
 }
 
 .gif-container {
@@ -53,11 +61,12 @@ html, body {
 
 .button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 100px); /* Match the new button width */
+    grid-template-columns: repeat(auto-fit, 100px); /* Fixed column size */
     justify-content: center; /* Center the grid items */
     gap: 0px; /* Remove gaps between buttons */
     max-width: 100%;
     padding: 10px;
+    margin-top: 0; /* Remove or reduce margin above the buttons */
     margin-bottom: 10px;
 }
 
@@ -68,7 +77,7 @@ html, body {
     height: 80px; /* Increase height */
     width: 100px; /* Increase width */
     text-align: center;
-    margin: 0px;
+    margin-left: 10px;
     border: 2px solid #000000;
     color: white; /* White text */
     background-clip: padding-box; /* Ensure the border doesn't overlap the background */
@@ -96,8 +105,9 @@ html, body {
 }
 
 #submitButton, #resetButton {
-    width: 100px; /* Set a fixed width for both buttons */
-    height: 140px; /* Match the height of the input boxes (280px / 2) */
+    width: 150px; /* Set a base width */
+    max-width: 100%; /* Allow buttons to shrink */
+    min-width: 100px; /* Prevent buttons from becoming too small */
     font-size: 16px; /* Smaller font size */
     cursor: pointer;
     background-color: #007bff; /* Blue background */
@@ -111,11 +121,11 @@ html, body {
 }
 
 #submitButton {
-    height: 140px; /* Match the height of the input boxes */
+    height: 140px; /* Keep the submit button tall */
 }
 
 #resetButton {
-    height: 140px; /* Match the height of the input boxes */
+    height: 70px; /* Make the reset button shorter */
 }
 
 #submitButton:hover, #resetButton:hover {
@@ -138,7 +148,7 @@ html, body {
 .input-container {
     display: flex; /* Make the container a flexbox */
     gap: 10px; /* Add space between the input boxes */
-    margin: 0px;
+    margin-left: 20px;
 }
 
 .input-container input {
@@ -178,5 +188,10 @@ html, body {
         width: 150px; /* Shrink size for even smaller screens */
         height: 150px; /* Shrink size for even smaller screens */
         font-size: 100px; /* Reduce font size for even smaller screens */
+    }
+
+    #submitButton, #resetButton {
+        width: 120px; /* Adjust button width for smaller screens */
+        font-size: 14px; /* Reduce font size for smaller screens */
     }
 }
