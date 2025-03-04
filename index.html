@@ -14,27 +14,24 @@
 
     <div class="content-container">
         <div class="left-container">
-            <div class="button-container" id="letter-buttons"></div>
-
-            <div class="button-container">
-                <button onclick="displayImage()" id="submitButton">Show Image</button>
-                <button onclick="resetInputs()">Reset</button> 
+            <div class="button-container" id="letter-buttons">
+                <!-- Alphabet buttons will be generated here -->
             </div>
-
+    
+            <div class="action-buttons"> <!-- New container for submit/reset buttons -->
+                <button onclick="displayImage()" id="submitButton">Show Image</button>
+                <button onclick="resetInputs()" id="resetButton">Reset</button> 
+            </div>
+    
             <div class="input-container">
                 <input type="text" id="input1" readonly>
                 <input type="text" id="input2" readonly>
             </div>
         </div>
-
+    
         <div class="gif-container">
             <img id="displayedImage" src="" alt="Displayed Image">
         </div>
-    </div>
-
-
-    <div class="button-container" id="letter-buttons">
-        <!-- Letter buttons will be generated here -->
     </div>
 
     
@@ -257,9 +254,9 @@
     
             if (input2_num >= 1 && input2_num <= 8) {
                 category = "beginning";
-            } else if (input2_num >= 9 && input2_num <= 18) {
+            } else if (input2_num >= 9 && input2_num <= 17) {
                 category = "middle";
-            } else if (input2_num >= 19 && input2_num <= 26) {
+            } else if (input2_num >= 18 && input2_num <= 26) {
                 category = "end";
             }
     

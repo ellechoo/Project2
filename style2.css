@@ -53,8 +53,9 @@ html, body {
 
 .button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: 0px;
+    grid-template-columns: repeat(auto-fit, 100px); /* Match the new button width */
+    justify-content: center; /* Center the grid items */
+    gap: 0px; /* Remove gaps between buttons */
     max-width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -64,10 +65,52 @@ html, body {
     font-size: 40px;
     padding: 10px;
     cursor: pointer;
-    height: 60px;
-    width: 80px;
+    height: 80px; /* Increase height */
+    width: 100px; /* Increase width */
     text-align: center;
     margin: 0px;
+    border: 2px solid #000000;
+    color: white; /* White text */
+    background-clip: padding-box; /* Ensure the border doesn't overlap the background */
+}
+
+/* First 8 letters: Red */
+#letter-buttons button:nth-child(-n+8) {
+    background-color: #ff0000; /* Red */
+}
+
+/* Next 9 letters: Green */
+#letter-buttons button:nth-child(n+9):nth-child(-n+17) {
+    background-color: #00ff00; /* Green */
+}
+
+/* Last 9 letters: Blue */
+#letter-buttons button:nth-child(n+18) {
+    background-color: #0000ff; /* Blue */
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px; /* Add space between the buttons */
+    justify-content: flex-start; /* Align buttons to the left */
+    padding: 10px;
+}
+
+#submitButton, #resetButton {
+    padding: 10px 20px; /* Rectangular padding */
+    font-size: 16px; /* Smaller font size */
+    cursor: pointer;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Slightly rounded corners */
+    margin: 5px; /* Add some spacing */
+    height: auto; /* Allow height to adjust based on content */
+    min-width: 100px; /* Ensure a minimum width */
+}
+
+#submitButton:hover, #resetButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .form-container {
@@ -92,12 +135,6 @@ html, body {
     box-sizing: border-box; /* Ensure padding is included in the width */
     flex-shrink: 1; /* Allow the input boxes to shrink */
     min-width: 100px; /* Set a minimum width to prevent them from becoming too small */
-}
-
-#submitButton, #resetButton {
-    padding: 10px 10px;
-    font-size: 16px;
-    cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) {
