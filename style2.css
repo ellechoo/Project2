@@ -38,7 +38,7 @@ h1 {
 }
 
 .right-container {
-    flex: 1; /* Takes 1/3 of the space */
+    flex: 1.2; /* Takes 1/3 of the space */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,7 +71,7 @@ h1 {
         linear-gradient(black, black);
     mask-composite: exclude;
 
-    padding: 80px; /* Creates the inner cutout effect */
+    padding: 50px; /* Creates the inner cutout effect */
 }
 
 
@@ -198,6 +198,23 @@ h1 {
     box-sizing: border-box; /* Ensure padding is included in the width */
     flex-shrink: 1; /* Allow the input boxes to shrink */
     min-width: 100px; /* Set a minimum width to prevent them from becoming too small */
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center label under input */
+    text-align: center;
+}
+
+.input-wrapper label {
+    margin-top: 5px; /* Space between input and label */
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    width: 100%; /* Match input width */
+    text-align: center;
+    border: 1px solid #000000;
 }
 
 @media screen and (max-width: 1200px) {

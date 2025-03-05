@@ -19,8 +19,16 @@
             <!-- New structure for input boxes and buttons -->
             <div class="input-and-buttons-container">
                 <div class="input-container">
-                    <input type="text" id="input1" readonly>
-                    <input type="text" id="input2" readonly>
+                    
+                    <div class="input-wrapper">
+                        <input type="text" id="input1" readonly>
+                        <label for="input1">Player 1</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="input2" readonly>
+                        <label for="input2">Player 2</label>
+                    </div>
+                    
                 </div>
                 <div class="action-buttons">
                     <button onclick="resetInputs()" id="resetButton">Reset</button>
