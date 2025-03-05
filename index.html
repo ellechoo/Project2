@@ -60,6 +60,36 @@
         const buttonContainer = document.getElementById("letter-buttons");
         const input1 = document.getElementById("input1");
         const input2 = document.getElementById("input2");
+
+
+        const characterNames = {
+            "A": "Acheron",
+            "B": "Bruno",
+            "C": "Cinnamoroll",
+            "D": "Dong-eun (문동은)",
+            "E": "Entrapta",
+            "F": "Furina",
+            "G": "Gwen Stacy",
+            "H": "Haku",
+            "I": "Iroh",
+            "J": "Jobu Tupaki",
+            "K": "Kirby",
+            "L": "Lucina",
+            "M": "Mariko",
+            "N": "Naevis",
+            "O": "Oogway",
+            "P": "Peridot",
+            "Q": "Queen",
+            "R": "Raven",
+            "S": "Shadow Milk Cookie",
+            "T": "Toad",
+            "U": "Ultraman (Ken Sato)",
+            "V": "Violet",
+            "W": "Woo Young Woo",
+            "X": "?",
+            "Y": "Yuta",
+            "Z": "Zuko"
+        };
         
     
         // Generate letter buttons for input 1 (A-Z)
@@ -108,23 +138,18 @@
                 return;
             }
 
+            nameLabelsContainer.innerHTML = "";
 
-
-            const characterNames = [
-        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-        ];
-
-        // Clear previous labels
-        nameLabelsContainer.innerHTML = "";
-
-        // Create label only for the selected character from the input
-        const selectedName = input1_letter;
-        if (characterNames.includes(selectedName)) {
-        const label = document.createElement("span");
-        label.classList.add("name-label");
-        label.textContent = selectedName;
-        nameLabelsContainer.appendChild(label);
-        }
+            const selectedName = characterNames[input1_letter]; // Get name from the characterNames object
+            if (selectedName) {
+                const label = document.createElement("span");
+                label.classList.add("name-label");
+                label.textContent = selectedName;
+                nameLabelsContainer.appendChild(label);
+            } else {
+                alert("Character name not found.");
+            }
+            
 
     
 
@@ -332,6 +357,7 @@
                 imgElement.style.display = "none"; // Hide if no valid GIF
             }
         }
+
     </script> 
     
 </body>

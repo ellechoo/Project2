@@ -24,9 +24,9 @@ h1 {
 }
 
 .name-label {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
-    color: #fff;
+    color: #000000;
     text-align: center;
     z-index: 999;
 }
