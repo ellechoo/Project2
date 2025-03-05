@@ -211,13 +211,14 @@ h1 {
 }
 
 .input-wrapper label {
-    margin-top: 5px;
+    margin-top: -11px;
     font-size: 18px;
     font-weight: bold;
     color: #000;
     width: 100%;
     text-align: center;
     border: 1px solid #000000;
+    padding: 5px;
 }
 
 @media screen and (max-width: 1200px) {
