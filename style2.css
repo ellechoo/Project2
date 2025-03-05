@@ -33,13 +33,12 @@ h1 {
 
 
 
-
 .content-container {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Center children vertically */
+    align-items: center;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     margin: 0;
     padding: 0;
     gap: 50px;
@@ -69,21 +68,21 @@ h1 {
 
 .right-background {
     position: absolute;
-    width: 80%; /* Adjust width as needed */
-    height: 87%; /* Tall rectangle */
-    background-color: rgb(131, 189, 255); /* Adjust color and opacity */
-    z-index: 0; /* Ensure it's behind the GIF */
+    width: 80%; 
+    height: 87%; 
+    background-color: rgb(131, 189, 255);
+    z-index: 0; 
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px; /* Optional: rounded edges */
+    border-radius: 10px;
 }
 
 .gif-container {
     flex: 1;
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
+    justify-content: center; 
+    align-items: center; 
     min-width: 300px;
     max-width: 33%;
     max-height: 300px;
@@ -103,12 +102,12 @@ h1 {
 
 .button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 100px); /* Fixed column size */
-    justify-content: center; /* Center the grid items */
-    gap: 0px; /* Remove gaps between buttons */
+    grid-template-columns: repeat(auto-fit, 100px);
+    justify-content: center;
+    gap: 0px; 
     max-width: 100%;
     padding: 10px;
-    margin-top: 0; /* Remove or reduce margin above the buttons */
+    margin-top: 0;
     margin-bottom: 10px;
 }
 
@@ -116,13 +115,13 @@ h1 {
     font-size: 40px;
     padding: 10px;
     cursor: pointer;
-    height: 80px; /* Increase height */
-    width: 100px; /* Increase width */
+    height: 80px; 
+    width: 100px; 
     text-align: center;
     margin-left: 10px;
     border: 2px solid #000000;
-    color: white; /* White text */
-    background-clip: padding-box; /* Ensure the border doesn't overlap the background */
+    color: white;
+    background-clip: padding-box; 
 }
 
 /* First 8 letters: Red */
@@ -137,41 +136,41 @@ h1 {
 
 /* Last 9 letters: Blue */
 #letter-buttons button:nth-child(n+18) {
-    background-color: #0000ff; /* Blue */
+    background-color: #0000ff;
 }
 
 .action-buttons {
     display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px; /* Add space between the buttons */
+    flex-direction: column;
+    gap: 10px;
 }
 
 #submitButton, #resetButton {
-    width: 150px; /* Set a base width */
-    max-width: 100%; /* Allow buttons to shrink */
-    min-width: 100px; /* Prevent buttons from becoming too small */
-    font-size: 16px; /* Smaller font size */
+    width: 150px; 
+    max-width: 100%;
+    min-width: 100px;
+    font-size: 16px;
     cursor: pointer;
-    background-color: #86929f; /* Blue background */
-    color: white; /* White text */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Slightly rounded corners */
-    margin: 0; /* Remove margin */
+    background-color: #86929f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
     display: flex;
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
+    align-items: center;
+    justify-content: center;
 }
 
 #submitButton {
-    height: 140px; /* Keep the submit button tall */
+    height: 140px;
 }
 
 #resetButton {
-    height: 70px; /* Make the reset button shorter */
+    height: 70px;
 }
 
 #submitButton:hover, #resetButton:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
 }
 
 .form-container {
@@ -183,57 +182,57 @@ h1 {
 
 .input-and-buttons-container {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
-    gap: 20px; /* Add space between input boxes and buttons */
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .input-container {
-    display: flex; /* Make the container a flexbox */
-    gap: 10px; /* Add space between the input boxes */
+    display: flex; 
+    gap: 10px;
     margin-left: 20px;
 }
 
 .input-container input {
-    width: 280px; /* Restore the original big square size */
-    height: 280px; /* Restore the original big square size */
-    font-size: 200px; /* Restore the original font size */
+    width: 280px;
+    height: 280px;
+    font-size: 200px;
     text-align: center;
     margin-bottom: 10px;
-    box-sizing: border-box; /* Ensure padding is included in the width */
-    flex-shrink: 1; /* Allow the input boxes to shrink */
-    min-width: 100px; /* Set a minimum width to prevent them from becoming too small */
+    box-sizing: border-box;
+    flex-shrink: 1; 
+    min-width: 100px;
 }
 
 .input-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center label under input */
+    align-items: center;
     text-align: center;
 }
 
 .input-wrapper label {
-    margin-top: 5px; /* Space between input and label */
+    margin-top: 5px;
     font-size: 18px;
     font-weight: bold;
     color: #000;
-    width: 100%; /* Match input width */
+    width: 100%;
     text-align: center;
     border: 1px solid #000000;
 }
 
 @media screen and (max-width: 1200px) {
     .input-container input {
-        width: 200px; /* Shrink size for smaller screens */
-        height: 200px; /* Shrink size for smaller screens */
-        font-size: 150px; /* Reduce font size for smaller screens */
+        width: 200px;
+        height: 200px;
+        font-size: 150px;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     .content-container {
-        flex-direction: column; /* Stack left and right containers */
+        flex-direction: column; 
         align-items: center;
-        gap: 40px; /* More space between sections */
+        gap: 40px;
     }
 
     .left-container {
@@ -242,7 +241,7 @@ h1 {
     }
 
     .right-container {
-        order: 2; /* Move below left container */
+        order: 2; 
         width: 100%;
         max-width: 100%;
         height: auto;
@@ -250,27 +249,27 @@ h1 {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        position: relative; /* Needed for absolute positioning of background */
-        padding-top: 800px; /* Add space so it's lower */
+        position: relative; 
+        padding-top: 800px;
     }
 
     .right-background {
         width: 80%;
-        height: 500px; /* Adjust as needed */
+        height: 500px;
         background-color: rgb(131, 189, 255);
         border-radius: 10px;
-        position: absolute; /* Ensure it stays behind */
-        top: 50%; /* Move it down */
-        transform: translateY(-50%); /* Center it vertically */
-        z-index: 0; /* Keep it behind the GIF */
+        position: absolute; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        z-index: 0; 
         margin-top: 100px;
     }
 
     .gif-container {
         flex: 1;
         display: flex;
-        justify-content: center; /* Centers horizontally */
-        align-items: center; /* Centers vertically */
+        justify-content: center;
+        align-items: center; 
         min-width: 300px;
         max-width: 33%;
         max-height: 300px;
@@ -280,7 +279,7 @@ h1 {
         box-sizing: border-box;
         position: relative;
         z-index: 1;
-        margin-top: -600px; /* Create space from the background */
+        margin-top: -600px;
     }
 
     #displayedImage {
