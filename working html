@@ -37,20 +37,16 @@
             </div>
         </div>
     
-        <!-- Right Container -->
-        <div class="right-container">
+    <!-- Right Container -->
+    <div class="right-container">
+     <!-- Large Vertical Rectangle (Background) -->
+     <div class="right-background"></div>
 
-            <div id="name-labels" class="name-labels"></div>
-            <div class="right-background"></div>
-            
-
-            <!-- GIF Container -->
-            <div class="gif-container">
-                
-                <img id="displayedImage" src="" alt="Displayed Image">
-                
-            </div>
-        </div>
+     <!-- GIF Container -->
+      <div class="gif-container">
+         <img id="displayedImage" src="" alt="Displayed Image">
+     </div>
+    </div>
 
     </div>
     
@@ -88,14 +84,10 @@
             const imgElement = document.getElementById("displayedImage");
             imgElement.style.display = "none";
             imgElement.src = "";
-
-            const nameLabelsContainer = document.getElementById("name-labels");
-            nameLabelsContainer.innerHTML = "";
         }
     
         function displayImage() {
             const imgElement = document.getElementById("displayedImage");
-            const nameLabelsContainer = document.getElementById("name-labels");
             imgElement.style.display = "none";
             imgElement.src = "";
     
@@ -107,27 +99,7 @@
                 alert("Please select both letters first.");
                 return;
             }
-
-
-
-            const characterNames = [
-        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
-        ];
-
-        // Clear previous labels
-        nameLabelsContainer.innerHTML = "";
-
-        // Create label only for the selected character from the input
-        const selectedName = input1_letter;
-        if (characterNames.includes(selectedName)) {
-        const label = document.createElement("span");
-        label.classList.add("name-label");
-        label.textContent = selectedName;
-        nameLabelsContainer.appendChild(label);
-        }
-
     
-
             // GIF Map for Characters (A-Z)
             const characterGifMap = {
                 "A": [
