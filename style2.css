@@ -34,46 +34,31 @@ h1 {
     gap: 10px;
     padding: 20px;
     height: 100%;
-    background-color: rgba(48, 120, 255, 0.1); /* Optional: Just to visualize its size */
+    background-color: rgba(48, 120, 255, 0.0);
 }
 
 .right-container {
-    flex: 1.2; /* Takes 1/3 of the space */
+    flex: 1.2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Make it take up the full viewport height */
+    height: 100vh;
     position: relative;
-    background-color: rgba(0, 0, 0, 0.1); /* Optional: Just to visualize its size */
+    background-color: rgba(0, 0, 0, 0.0);
 }
 
-.frame-box {
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center properly */
-    max-width: 100%;
-    padding: 20px;
-    width: 80%;
-    height: 700px; /* Tall rectangular box */
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+.right-background {
     position: absolute;
-    top: 50%;
-    z-index: 2;
-
-    /* Mask to create a square hole in the center */
-    -webkit-mask: 
-        linear-gradient(black, black) content-box, 
-        linear-gradient(black, black);
-    -webkit-mask-composite: destination-out;
-    
-    mask: 
-        linear-gradient(black, black) content-box, 
-        linear-gradient(black, black);
-    mask-composite: exclude;
-
-    padding: 50px; /* Creates the inner cutout effect */
+    width: 80%; /* Adjust width as needed */
+    height: 87%; /* Tall rectangle */
+    background-color: rgb(131, 189, 255); /* Adjust color and opacity */
+    z-index: 0; /* Ensure it's behind the GIF */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* Optional: rounded edges */
 }
-
 
 .gif-container {
     flex: 1;
@@ -227,32 +212,63 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .content-container {
-        flex-direction: column;
+        flex-direction: column; /* Stack left and right containers */
         align-items: center;
-        gap: 20px; /* Adjust gap for mobile layout */
+        gap: 40px; /* More space between sections */
+    }
+
+    .left-container {
+        width: 100%;
+        max-width: 100%;
     }
 
     .right-container {
-        order: 1; /* Moves it below the left container */
+        order: 2; /* Move below left container */
         width: 100%;
         max-width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative; /* Needed for absolute positioning of background */
+        padding-top: 800px; /* Add space so it's lower */
+    }
+
+    .right-background {
+        width: 80%;
+        height: 500px; /* Adjust as needed */
+        background-color: rgb(131, 189, 255);
+        border-radius: 10px;
+        position: absolute; /* Ensure it stays behind */
+        top: 50%; /* Move it down */
+        transform: translateY(-50%); /* Center it vertically */
+        z-index: 0; /* Keep it behind the GIF */
+        margin-top: 100px;
     }
 
     .gif-container {
-        order: 1; /* Moves it below everything */
+        flex: 1;
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center; /* Centers vertically */
+        min-width: 300px;
+        max-width: 33%;
+        max-height: 300px;
+        border: 2px solid black;
+        background-color: rgba(0, 0, 0, 0.05);
+        margin: 0;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+        margin-top: -600px; /* Create space from the background */
+    }
+
+    #displayedImage {
         width: 100%;
-        max-width: 100%;
-        margin-top: 0; /* Reset margin-top for mobile */
-    }
-
-    .input-container input {
-        width: 150px; /* Shrink size for even smaller screens */
-        height: 150px; /* Shrink size for even smaller screens */
-        font-size: 100px; /* Reduce font size for even smaller screens */
-    }
-
-    #submitButton, #resetButton {
-        width: 100px;
-        font-size: 14px;
+        height: auto;
+        object-fit: cover;
     }
 }
+
+
