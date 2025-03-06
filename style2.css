@@ -53,8 +53,13 @@ h1 {
     font-weight: bold;
 }
 
-
-
+.version-label {
+    font-size: 1.0em;
+    font-weight: bold;
+    color: #E584E5;
+    margin-top: 10px;
+    text-align: center;
+}
 
 .content-container {
     background-color: #0040DC;
