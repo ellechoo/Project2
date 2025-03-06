@@ -1,15 +1,31 @@
+@font-face {
+    font-family: 'Pixel Game';
+    src: url('fonts/pixel-game.regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zig';
+    src: url('fonts/zig.regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Zig', sans-serif;
 }
 
 html, body {
     height: 100%;
+    font-family: 'Zig', sans-serif;
 }
 
 h1 {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     color: #000000;
     margin-left: 25px;
@@ -24,12 +40,18 @@ h1 {
 }
 
 .name-label {
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     color: #000000;
     text-align: center;
     z-index: 999;
 }
+
+.small-label {
+    font-size: 25px;
+    font-weight: bold;
+}
+
 
 
 

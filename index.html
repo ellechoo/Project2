@@ -64,7 +64,7 @@
 
         const characterNames = {
             "A": "Acheron",
-            "B": "Bruno Bucciarati",
+            "B": "Bucciarati",
             "C": "Cinnamoroll",
             "D": "Dong-eun (문동은)",
             "E": "Entrapta",
@@ -79,11 +79,11 @@
             "N": "Naevis",
             "O": "Oogway",
             "P": "Peridot",
-            "Q": "Queen - Deltarune",
+            "Q": "Queen",
             "R": "Raven",
             "S": "Shadow Milk Cookie",
             "T": "Toad",
-            "U": "Ultraman (Ken Sato)",
+            "U": "Ultraman / Ken Sato",
             "V": "Violet",
             "W": "Woo Young Woo",
             "X": "?",
@@ -144,6 +144,11 @@
             if (selectedName) {
                 const label = document.createElement("span");
                 label.classList.add("name-label");
+
+                if (input1_letter === "U" || input1_letter === "S") {
+                label.classList.add("small-label");
+                }
+
                 label.textContent = selectedName;
                 nameLabelsContainer.appendChild(label);
             } else {

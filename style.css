@@ -42,7 +42,7 @@ body {
 .container {
     display: flex;
     align-items: center;
-    gap: 60px;  /* Space between the image and the labels */
+    gap: 60px;
 }
 
 .image-container {
