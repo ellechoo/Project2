@@ -363,6 +363,56 @@
             }
         }
 
+
+        
+        // Button selection
+        document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll("#letter-buttons button");
+        const resetButton = document.getElementById("resetButton");
+        let firstSelection = null;
+        let secondSelection = null;
+
+        buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            if (button === firstSelection) {
+                return; // Ignore clicks on the first selected button
+            }
+
+            if (!firstSelection) {
+                // First selection
+                firstSelection = button;
+                button.style.backgroundColor = "#FFC9FF";
+                button.style.color = "#CB5CCB";
+            } else {
+                // Second selection
+                if (secondSelection) {
+                    // Reset previous second selection
+                    secondSelection.style.backgroundColor = "";
+                    secondSelection.style.color = "#FFC9FF";
+                }
+
+                secondSelection = button;
+                button.style.backgroundColor = "#FFC9FF";
+                button.style.color = "#CB5CCB";
+                }
+            });
+        });
+
+        resetButton.addEventListener("click", function () {
+        if (firstSelection) {
+            firstSelection.style.backgroundColor = "";
+            firstSelection.style.color = "#FFC9FF";
+        }
+        if (secondSelection) {
+            secondSelection.style.backgroundColor = "";
+            secondSelection.style.color = "#FFC9FF";
+        }
+
+        firstSelection = null;
+        secondSelection = null;
+        });
+        });
+
     </script> 
     
 </body>

@@ -98,7 +98,7 @@ h1 {
     justify-content: center;
     align-items: center;
 
-    border-color:#FFADFF;
+    border: 4px solid #E584E5;
 }
 
 .gif-container {
@@ -109,7 +109,7 @@ h1 {
     min-width: 300px;
     max-width: 33%;
     max-height: 300px;
-    border: 2px solid #FFADFF;
+    border: 0px solid #FFADFF;
     margin: 0;
     box-sizing: border-box;
     position: relative;
@@ -160,6 +160,16 @@ h1 {
 #letter-buttons button:nth-child(n+18) {
     background-color: #0044ff;
 }
+
+
+#letter-buttons button:hover {
+    background-color: #FFC9FF !important; /* Changes background to white */
+    color: #002ba2; /* Change text color to maintain contrast */
+    font-size: 50px; /* Increases font size */
+    transition: all 0.2s ease-in-out; /* Smooth transition effect */
+}
+
+
 
 .action-buttons {
     display: flex;
@@ -223,7 +233,7 @@ h1 {
     box-sizing: border-box;
     flex-shrink: 1; 
     min-width: 100px;
-    color: #ffffff;
+    color: #FFC9FF;
     background-color: #00144a;
     border: 2px solid #FFADFF;
 }
