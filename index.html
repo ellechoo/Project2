@@ -88,7 +88,7 @@
             "U": "Ultraman / Ken Sato",
             "V": "Violet",
             "W": "Woo Young Woo",
-            "X": "?",
+            "X": "❄︎♒︎♏︎❒︎♏︎ ♋︎❒︎♏︎■︎⧫︎ ❍︎♋︎■︎⍓︎ ♍︎♒︎♋︎❒︎♋︎♍︎⧫︎♏︎❒︎⬧︎ ⬥︎♒︎□︎⬧︎♏︎ ■︎♋︎❍︎♏︎ ⬧︎⧫︎♋︎❒︎⧫︎⬧︎ ⬥︎♓︎⧫︎♒︎ ✠︎",
             "Y": "Yuta",
             "Z": "Zuko"
         };
@@ -169,6 +169,10 @@
 
                 if (input1_letter === "U" || input1_letter === "S") {
                 label.classList.add("small-label");
+                }
+
+                if (input1_letter === "X") {
+                label.classList.add("x-label");
                 }
 
                 label.textContent = selectedName;
